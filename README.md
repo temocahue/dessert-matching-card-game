@@ -13,7 +13,7 @@ Matching Card Game
 6. the user should see if the cards do not match after both cards are clicked  and the cards should return face down.
 7. user should able to match all 12 cards before timer ends
 8. user should see total of cards match.
-9. user should see messgae "game over !" if timer ends before all card matches
+9. user should see message "game over !" if timer ends before all card matches
 10. the user should see the message "you win" if all cards match before timer is finish.
 11. user should see the cards reset at random and play again.
 
