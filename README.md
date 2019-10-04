@@ -11,7 +11,7 @@ Matching Card Game
 4. user should be able to navigate over the cards
 5. user should be able to click a card to flip it over and see an image 
 6. the user should see if the cards do not match after both cards are clicked  and the cards should return face down.
-7. user should able to match all 12 cards befor timer ends
+7. user should able to match all 12 cards before timer ends
 8. user should see total of cards match.
 9. user should see messgae "game over !" if timer ends before all card matches
 10. the user should see the message "you win" if all cards match before timer is finish.
