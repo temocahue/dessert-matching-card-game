@@ -4,7 +4,13 @@
 
 
 
-body{
+body {
 	height: 100vh;
 	background-color: gold;
+}
+
+#card-area {
+	background-color: white;
+	min-height: 500px;
+	min-width: 500px;
 }
