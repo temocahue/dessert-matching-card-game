@@ -13,45 +13,50 @@ class Card {
 
 const game = {
 	// timer
-	// points
-	// 
+	// points 
 
 	display() {
-		// 2. show card (back) to the user using jquery
-
-	   	// create element with jquery 
-		// jquery:
+		
 		for(let i = 0; i < emoji.length; i++){
+
 			const $div = $('<div/>');
 			const $p = $('<p/>');
 			const $cardArea = $('#card-area')
 			$div.appendTo($cardArea);
 			$p.text(emoji[i]).appendTo($div);
-
 			$div.attr('class', 'cards');
 			console.log($('.cards'));
+			const $img = $('<img/>')
+
+		$img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
+		$img.appendTo($div)
+		console.log($img);
+
 		}
-
-
-			// create cards in a loop
-			// append to div with id of 'card-area'
-			// give each card a class -- use this class to create styling in the css
-
-	   	// append to DOM
 
 	},
 
 	turn() {
+
+		// see if you can get it printing what card was clicked -- use a listener
+
 		// 3. visual -- see card face instead card back
 
 		// 4. make it flip back either after some time or after they click again
+		// const $img = $('<img/>')
+
+		// $img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
+		// $img.appendTo($div)
+		// console.log($img);
+
+		//to show front, hide this image?
+
+		// to show back, hide the emoji <p>, show the image?
+
 	},
 	
 	compare(card1, card2) {
-		// 1. compare the two cards
-
-		// boolean -- true or false
-		// print true or false
+	
 		if(card1.text === card2.text){
 	   		console.log(true); 
 		}

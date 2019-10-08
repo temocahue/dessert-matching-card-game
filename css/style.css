@@ -9,31 +9,55 @@
 
 body {
 	height: 100vh;
-	background-color: gold;
+	background-color: black;
+	display: flex;
 }
 
 #card-area {
-	border: 2px solid white;
+	border: 2px solid grey;
 	width: 640px;
 	height: 640px;
 	display: flex;
 	flex-wrap: wrap;
-	background-color: yellow;
+	background-color: blue;
+	margin: auto;
 }
 
 
 .cards{
 	
-	border: 2px solid yellow;
+	border: 2px solid blue;
 	width: 25%;
 	height: 33%;
 	position: relative;
 	font-size: 100px;
 	text-align: center;	
-	background-color: white;
+	background-color: black;
 }
 
 p{
 	margin: auto 0;
 	padding: 25px;
+	position: absolute;
+	display:none;
+
+}
+h1{
+	color: white;
+	text-align: center;
+	display: flex;
+	padding: 25px;
+}
+img{
+	padding: 0px;
+	margin: auto 0;
+	height: 98%;
+	width: 149px;
+	flex-wrap: wrap;
+	position: relative;
+	background-color: lightblue;
+
+
+
+	
 }
