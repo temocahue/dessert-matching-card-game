@@ -39,8 +39,7 @@ p{
 	margin: auto 0;
 	padding: 25px;
 	position: absolute;
-	display:none;
-
+	
 }
 h1{
 	color: white;
@@ -56,6 +55,7 @@ img{
 	flex-wrap: wrap;
 	position: relative;
 	background-color: lightblue;
+
 
 
 

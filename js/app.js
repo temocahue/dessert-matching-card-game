@@ -27,10 +27,10 @@ const game = {
 			$div.attr('class', 'cards');
 			console.log($('.cards'));
 			const $img = $('<img/>')
-
-		$img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
-		$img.appendTo($div)
-		console.log($img);
+			$img.attr('id', i)
+			$img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
+			$img.appendTo($div)
+			console.log($img);
 
 		}
 
@@ -52,6 +52,11 @@ const game = {
 		//to show front, hide this image?
 
 		// to show back, hide the emoji <p>, show the image?
+		// $($div).on('click', (e) => {
+		//  $img.hide()
+		//  $p.show()
+
+		// })
 
 	},
 	
@@ -78,9 +83,11 @@ const card1 = new Card(emoji[0])
 console.log(card1);
 const card2 = new Card(emoji[1])
 console.log(card2);
-
 game.compare(card1, card2);
 game.display()
+$('div').on('click', (e) => {
+$(e.target).css('opacity', 0)
+})
 
 
 // const card3 = new Card(emoji[2])
