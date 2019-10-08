@@ -17,12 +17,26 @@ const game = {
 	// 
 
 	display() {
-		// jquery: 
+		// 2. show card (back) to the user using jquery
+
+	   	// create element with jquery 
+		// jquery:
+		for(let i = 0; i < emoji.length; i++){
+			const $div = $('<div/>');
+			const $p = $('<p/>');
+			const $cardArea = $('#card-area')
+			$div.appendTo($cardArea);
+			$p.text(emoji[i]).appendTo($div);
+
+			$div.attr('class', 'cards');
+			console.log($('.cards'));
+		}
+
+
 			// create cards in a loop
 			// append to div with id of 'card-area'
 			// give each card a class -- use this class to create styling in the css
-		// 2. show card (back) to the user using jquery
-	   	// create element with jquery 
+
 	   	// append to DOM
 
 	},

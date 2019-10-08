@@ -1,5 +1,8 @@
-
-/* card */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
 
 
@@ -10,7 +13,27 @@ body {
 }
 
 #card-area {
+	border: 2px solid white;
+	width: 640px;
+	height: 640px;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: yellow;
+}
+
+
+.cards{
+	
+	border: 2px solid yellow;
+	width: 25%;
+	height: 33%;
+	position: relative;
+	font-size: 100px;
+	text-align: center;	
 	background-color: white;
-	min-height: 500px;
-	min-width: 500px;
+}
+
+p{
+	margin: auto 0;
+	padding: 25px;
 }
