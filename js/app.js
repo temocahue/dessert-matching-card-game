@@ -11,40 +11,87 @@ class Card {
 
 }
 
+
+const emoji = ['🥞', '🥞', '🍰', '🍰', '🍪', '🍪', '🍡', '🍡', '🍮', '🍮', '🍦', '🍦'];
+
 const game = {
 	timePassed:100, 
     points:0,
 
-
-
-    // beginTimer(){
-    // 	const timer = setInterval(() => {
-    // 		this.timePassed--
-    // 		this.printData()
-    // 		console.log(timer)
-
-    // 	}, 1000)
-
-    // },
+  
 
 	display() {
 		
-		for(let i = 0; i < emoji.length; i++){
+		
 
-			const $div = $('<div/>');
-			const $p = $('<p/>');
-			const $cardArea = $('#card-area')
-			$div.appendTo($cardArea);
-			$p.text(emoji[i]).appendTo($div);
-			$div.attr('class', 'cards');
-			// console.log($('.cards'));
-			const $img = $('<img/>')
-			$img.attr('id', i)
-			$img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
-			$img.appendTo($div)
-			// console.log($img);
+			while(emoji.length > 0) {
+				
+				// get a rand index number so we can get one emoji
+				const randIndex = Math.floor(Math.random() * emoji.length)
 
-		}
+				// use randIndex to get the emoji 
+				const container = emoji.splice(randIndex, 1);
+				// randIndex is a variable that contains the rand index number so i start 
+				// with that index number that is stored inside.
+				const getemoji = container;
+				// i stored the container in a new variable to store my emoji that i retrieved.
+
+				// just get item -- text -- an emoji
+
+
+
+				// append them to the dom
+				const $div = $('<div/>');
+				const $cardArea = $('#card-area')
+				$div.attr('class', 'cards');
+				$div.appendTo($cardArea);
+
+				// use emoji captured above
+			    const $p = $('<p/>');
+				$p.text(getemoji).appendTo($div);
+
+				
+				const $img = $('<img/>')
+		        $img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
+				$img.appendTo($div)
+
+				// console.log($img);
+					// console.log(emoji.length);
+
+
+			}
+
+
+
+
+
+		// for(let i = 0; i < emoji.length; i++){
+
+		// 	// add text using Math.floor(Math.random())
+		// 	// give them id or class
+
+
+
+		// 	// create divs
+		// 	const $div = $('<div/>');
+		// 	const $p = $('<p/>');
+
+		// 	// append them to the dom
+		// 	const $cardArea = $('#card-area')
+		// 	$div.appendTo($cardArea);
+		// 	$p.text(emoji[i]).appendTo($div);
+
+		// 	// Math.floor(Math.random() * emoji.length)
+  //  //          emoji.splice()
+		// 	$div.attr('class', 'cards');
+		// 	// console.log($('.cards'));
+		// 	const $img = $('<img/>')
+		// 	// $img.attr('id', i)
+		// 	$img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
+		// 	$img.appendTo($div)
+		// 	console.log($img);
+
+		// }
 
 	},
 	// printData(){
@@ -63,16 +110,9 @@ const game = {
 			console.log("currentOpacity is 1 and we're switching it");
 			$(card).css('opacity', 1)
 		}
-
-	// if(e  === 0){
-	//   e = 100;
-	//  }
-	// if (e.target === 0) {
-	// 	e.target = 100;
 	
 
-	},
-
+	}
 	
 
 	
@@ -94,12 +134,9 @@ const game = {
 
 
 
-const emoji = ['🥞', '🥞', '🍰', '🍰', '🍪', '🍪', '🍡', '🍡', '🍮', '🍮', '🍦', '🍦'];
-
-
 
 // const card1 = new Card(emoji[0])
-// // console.log(card1);
+// // console.log(card1); 
 // const card2 = new Card(emoji[1])
 // console.log(card2);
 // game.compare(card1, card2);
@@ -108,10 +145,6 @@ game.display()
 // 	game.beginTimer()
 // })
 
-// $('div').on('click', (e) => {
-// 	$(e.target).css('opacity', 1)
-// 	// game.turn()
-// })
 
 
 $('.cards').on('click', (e) => {
