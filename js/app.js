@@ -12,8 +12,20 @@ class Card {
 }
 
 const game = {
-	// timer
-	// points 
+	timePassed:100, 
+    points:0,
+
+
+
+    // beginTimer(){
+    // 	const timer = setInterval(() => {
+    // 		this.timePassed--
+    // 		this.printData()
+    // 		console.log(timer)
+
+    // 	}, 1000)
+
+    // },
 
 	display() {
 		
@@ -25,50 +37,57 @@ const game = {
 			$div.appendTo($cardArea);
 			$p.text(emoji[i]).appendTo($div);
 			$div.attr('class', 'cards');
-			console.log($('.cards'));
+			// console.log($('.cards'));
 			const $img = $('<img/>')
 			$img.attr('id', i)
 			$img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
 			$img.appendTo($div)
-			console.log($img);
+			// console.log($img);
 
 		}
 
 	},
+	// printData(){
+	// 	const timer = $('#timer')
+	// 	$timer.text(`timer: ${this.timePassed}s`)
+	// },
 
-	turn() {
+	turn(card) {
+		console.log("now we're in turn and we're changing the opacity");
+		const currentOpacity = $(card).css('opacity')
+		console.log(currentOpacity);
+		if(currentOpacity == 1) {
+			console.log("currentOpacity is 0 and we're switching it");
+			$(card).css('opacity', 0)
+		} else if(currentOpacity == 0){
+			console.log("currentOpacity is 1 and we're switching it");
+			$(card).css('opacity', 1)
+		}
 
-		// see if you can get it printing what card was clicked -- use a listener
-
-		// 3. visual -- see card face instead card back
-
-		// 4. make it flip back either after some time or after they click again
-		// const $img = $('<img/>')
-
-		// $img.attr("src", "https://cdn4.iconfinder.com/data/icons/smiley-9/100/Poop-512.png")
-		// $img.appendTo($div)
-		// console.log($img);
-
-		//to show front, hide this image?
-
-		// to show back, hide the emoji <p>, show the image?
-		// $($div).on('click', (e) => {
-		//  $img.hide()
-		//  $p.show()
-
-		// })
+	// if(e  === 0){
+	//   e = 100;
+	//  }
+	// if (e.target === 0) {
+	// 	e.target = 100;
+	
 
 	},
+
 	
-	compare(card1, card2) {
+
 	
-		if(card1.text === card2.text){
-	   		console.log(true); 
-		}
+	
+	// compare(card1, card2) {
+	
+	// 	if(card1.text === card2.text){
+	//    		console.log(true); 
+	// 	}
 		
 		
 
-	}
+	// }
+
+	
 
 }
 
@@ -79,30 +98,27 @@ const emoji = ['🥞', '🥞', '🍰', '🍰', '🍪', '🍪', '🍡', '🍡', '
 
 
 
-const card1 = new Card(emoji[0])
-console.log(card1);
-const card2 = new Card(emoji[1])
-console.log(card2);
-game.compare(card1, card2);
+// const card1 = new Card(emoji[0])
+// // console.log(card1);
+// const card2 = new Card(emoji[1])
+// console.log(card2);
+// game.compare(card1, card2);
 game.display()
-$('div').on('click', (e) => {
-$(e.target).css('opacity', 0)
+// $('#start').on('click', () => {
+// 	game.beginTimer()
+// })
+
+// $('div').on('click', (e) => {
+// 	$(e.target).css('opacity', 1)
+// 	// game.turn()
+// })
+
+
+$('.cards').on('click', (e) => {
+	console.log(e.target);
+	game.turn(e.target)
 })
 
-
-// const card3 = new Card(emoji[2])
-// const card4 = new Card(emoji[3])
-// const card5 = new Card(emoji[4])
-// const card6 = new Card(emoji[5])
-// const card7 = new Card(emoji[6])
-// const card8 = new Card(emoji[7])
-// const card9 = new Card(emoji[8])
-// const card10 = new Card(emoji[9])
-// const card11 = new Card(emoji[10])
-// const card12 = new Card(emoji[11])
-
-
-// event listeners -- part of step 3
 
 
 
