@@ -17,7 +17,7 @@ const game = {
     points:0,
 
     //store element
-
+    cardClicked: null,
 
 	display() {
 		
@@ -65,7 +65,8 @@ const game = {
 	turn(card) {
 		console.log("here's the card element");
 		console.log(card);
-		// if previous card was clicked 
+
+		// if previous card was clicked -- this.cardClicked not null
 			
 			// compare:
 			// if the previous card matched the first card that was clicked 
@@ -77,9 +78,9 @@ const game = {
 				// (dont add points)
 
 
-		// if no card was click previously 
+		// if no card was click previously (else)
 			// (dont compare)
-			// let game know what emoji is revealed when user clicks on card -- 
+			// let game know the element that was clicked -- store in this.cardClicked
 			// so any card after the first click will be compared to the previous card.
 		
 
