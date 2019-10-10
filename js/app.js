@@ -22,7 +22,7 @@ const game = {
 	display() {
 		
 		while(emoji.length > 0) {
-			
+
 			// get a rand index number so we can get one emoji
 			const randIndex = Math.floor(Math.random() * emoji.length)
 
@@ -113,9 +113,9 @@ const game = {
 	
 	compareCards($card){
 
-		const $card3 = $(this.cardClicked)
-		const $card2 = $card3[0].className
-		const $card1 = $card[0].className
+		const $card2 = $(this.cardClicked)
+		const $card2Emoji = $card2[0].className
+		const $card1Emoji = $card[0].className
        
 		
 		
@@ -124,13 +124,16 @@ const game = {
 
 
 		// if the previous card matched the first card that was clicked 
-		if($card1 === $card2){
+		if($card1Emoji === $card2Emoji){
 		
 			console.log(true);
 			this.matchPoints +=1
 
 			setTimeout(() => {
-		    $('p').hide()
+		    $card.remove()
+		    $card2.remove()
+		    
+		    this.cardClicked = null;
 
 
 
@@ -147,7 +150,7 @@ const game = {
 		} else {
 			setTimeout(() => {
 				$card.css('opacity', 1)
-				$card3.css('opacity', 1)
+				$card2.css('opacity', 1)
 				this.cardClicked = null
 
 
