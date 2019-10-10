@@ -22,7 +22,7 @@ const game = {
 	display() {
 		
 		while(emoji.length > 0) {
-			console.log(this.cardClicked);
+			
 			// get a rand index number so we can get one emoji
 			const randIndex = Math.floor(Math.random() * emoji.length)
 
@@ -148,6 +148,7 @@ const game = {
 			setTimeout(() => {
 				$card.css('opacity', 1)
 				$card3.css('opacity', 1)
+				this.cardClicked = null
 
 
 
