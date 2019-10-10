@@ -26,14 +26,16 @@ body {
 
 .cards{
 	
-	border: 2px solid blue;
+	border: .1px solid blue;
 	width: 25%;
 	height: 33%;
 	position: relative;
 	font-size: 100px;
 	text-align: center;	
 	background-color: black;
-	/*transform-style: preserve-3d;
+	/*transform: rotateY(180deg);
+
+	transform-style: preserve-3d;
 	transition: all 0.5 ease;*/
 }
 
@@ -42,6 +44,7 @@ p{
 	padding: 25px;
 	position: absolute;
 	color: white
+
 	
 
 	
@@ -62,8 +65,44 @@ img{
 	background-color: lightblue;
 
 }
+#start{
+	height: 40px;
+	margin: 50px;
+	border: 10px solid white;
+	display: flex;
+	position: absolute;
+	flex-wrap: wrap-reverse;
+	color: blue;
+	
 
+}
+#timer{
+	color: blue;
+	margin: 10px; 
+	text-align: bottom;
+	font-size: 18px;
+	background-color: white;
+	display: flex;
+    flex-direction: column-reverse;
+    border: 2px solid white;
 
+}
+#matches{
+	color: blue;
+	font-size: 18px;
+	position: relative;
+    margin: 10px;
+    display: flex;
+    background-color: white;
+    flex-direction: column-reverse;
+    border: 2px solid white;
+}
+#lose{
+	color: lightblue;
+	font-size: 30px;
+	width: 10px;
+	height: 20px;
+}
 
 
 

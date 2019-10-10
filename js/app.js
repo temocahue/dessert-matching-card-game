@@ -13,8 +13,9 @@
 const emoji = ['🥞', '🥞', '🍰', '🍰', '🍪', '🍪', '🍡', '🍡', '🍮', '🍮', '🍦', '🍦'];
 
 const game = {
-	timePassed:100, 
+	timePassed:30, 
     matchPoints:0,
+    gameOver: false,
 
     //store element
     cardClicked: null,
@@ -53,14 +54,41 @@ const game = {
 	        $img.attr('class', getemoji)
 			$img.appendTo($div)
 
+			
+
 		}
 
 
+
 	},
-	// printData(){
-	// 	const timer = $('#timer')
-	// 	$timer.text(`timer: ${this.timePassed}s`)
-	// },
+
+    beginTimer(){
+    	const timer = setInterval(()=> {
+    		this.timePassed--
+    		console.log(this.timePassed);
+    		if(this.matchPoints === 6 || this.timePassed === 0  ){
+	    		clearInterval(timer)
+	    	    this.gameOver = true;
+
+    		}
+
+
+
+            this.endGame()
+    		this.printData()
+    		
+
+    	},1000)
+    	
+    },
+	
+	printData(){	
+		const $timer = $('#timer')
+		$timer.text(`Timer: ${this.timePassed}s`)
+		const $matches = $('#matches')
+		$matches.text(`CardsMatched: ${this.matchPoints}`)
+		
+	},
 
 	turn(card) {
 		const $card = $(card)
@@ -127,45 +155,38 @@ const game = {
 		if($card1Emoji === $card2Emoji){
 		
 			console.log(true);
+
+			// add point to cards matched
 			this.matchPoints +=1
 
-			setTimeout(() => {
-		    $card.remove()
-		    $card2.remove()
-		    
-		    this.cardClicked = null;
 
+			// if 6 
+				// win
+
+			// setTimeout
+			setTimeout(() => {
+			    $card.remove()
+			    $card2.remove()
+
+			    this.cardClicked = null;
 
 
 			}, 500)
 
-			// setTimeout
-				// (keep cards face up -- remove emoji?)
 			
-				// add point to cards matched
-    	
-
-		
 		/// if previous card does not match the card that was clicked 
 		} else {
 			setTimeout(() => {
+				// both cards face down currentOpacity = 1
 				$card.css('opacity', 1)
 				$card2.css('opacity', 1)
 				this.cardClicked = null
-
-
-
-
 
 			}, 500)
 			
 			console.log(false);
 
 
-			// setTimeout
-				// both cards face down currentOpacity = 1
-
-				// (dont add points)
 		}
 
 
@@ -173,12 +194,16 @@ const game = {
 
 	},
 	
-	endturn(){
-	  	//user shouldnt be able to click the card thats flipped face up
-       	// end turn if match of two is made and true,
-       	// end turn after two cards are clicked and match is false, face down
-       	// only two cards at a time .. after 2 card clicks disable listiner
-       //
+	endGame(){
+
+	
+		if(this.matchPoints < 6 && this.gameOver){
+		 $('#lose').text(`GameOver!`)
+		} else if(this.matchPoints === 6) {
+			console.log('you win');
+		}
+
+
 
 
 
@@ -198,9 +223,10 @@ const game = {
 
 game.display()
 
-// $('#start').on('click', () => {
-// 	game.beginTimer()
-// })
+$('#start').on('click', () => {
+	game.beginTimer()
+	
+})
 
 
 $('.cards').on('click', (e) => {
@@ -213,3 +239,11 @@ $('.cards').on('click', (e) => {
 
 
 
+
+// user shouldnt be able to click the card thats flipped face up
+// end turn if match of two is made and true,
+// end turn after two cards are clicked and match is false, face down
+// only two cards at a time .. after 2 card clicks disable listiner
+// not able to press cards until press start
+// clicking blue space 
+// fast clicks allow too many flips
