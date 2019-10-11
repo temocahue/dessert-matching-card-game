@@ -13,8 +13,8 @@
 const emoji = ['🥞', '🥞', '🍰', '🍰', '🍪', '🍪', '🍡', '🍡', '🍮', '🍮', '🍦', '🍦'];
 
 const game = {
-	timePassed:31, 
-    matchPoints:0,
+	timePassed: 31, 
+    matchPoints: 0,
     gameOver: false,
 
     //store element
@@ -67,7 +67,7 @@ const game = {
 
     		this.timePassed--
     		
-    		console.log(this.timePassed);
+    		
     		if(this.matchPoints === 6 || this.timePassed === 0  ){
 	    		clearInterval(timer)
 	    	    this.gameOver = true;
@@ -122,19 +122,6 @@ const game = {
 		}
 
 
-		// if previous card was clicked -- this.cardClicked not null
-			
-
-			// (dont compare)
-
-
-
-		// for later:
-		// if all cards are matched user under time limit user wins
-		// if no matches or less then total amount that can be match 
-		// and or equal to time limt when done  user game is over.
-
-
 
 		
 	},
@@ -156,16 +143,13 @@ const game = {
 		// if the previous card matched the first card that was clicked 
 		if($card1Emoji === $card2Emoji){
 		
-			console.log(true);
+			
 
 			// add point to cards matched
 			this.matchPoints +=1
 
 
-			// if 6 
-				// win
-
-			// setTimeout
+			
 			setTimeout(() => {
 			    $card.remove()
 			    $card2.remove()
@@ -186,7 +170,7 @@ const game = {
 
 			}, 500)
 			
-			console.log(false);
+			
 
 
 		}
@@ -200,15 +184,13 @@ const game = {
 
 	
 		if(this.matchPoints < 6 && this.gameOver){
-		 $('#lose').text(`Game Over!`)
-		 this.turn()
-		 $('.cards').off('click');
+			$('#lose').text(`Game Over!`)
+			this.turn()
+			$('.cards').off('click');
      
         } else if(this.matchPoints === 6) {
 			$('#win').text(`You Won !`)
-			 $('.cards').off('click');
-			console.log('you win');
-
+			$('.cards').off('click');
 		}
 
 
@@ -221,22 +203,10 @@ const game = {
 
 
 		
- 
-
-	
-
-
-
-
-
 game.display()
 
 $('#start').on('click', () => {
 	game.beginTimer()
-
-
-
-
 
 })
 
@@ -246,13 +216,6 @@ $('.cards').on('click', (e) => {
 	game.turn(e.target)
 
 })
-
-
-
-
-
-
-
 
 
 // user shouldnt be able to click the card thats flipped face up
