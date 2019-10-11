@@ -13,7 +13,7 @@
 const emoji = ['🥞', '🥞', '🍰', '🍰', '🍪', '🍪', '🍡', '🍡', '🍮', '🍮', '🍦', '🍦'];
 
 const game = {
-	timePassed:30, 
+	timePassed:31, 
     matchPoints:0,
     gameOver: false,
 
@@ -65,6 +65,7 @@ const game = {
     beginTimer(){
     	const timer = setInterval(()=> {
     		this.timePassed--
+    		$('.cards').on('click');
     		console.log(this.timePassed);
     		if(this.matchPoints === 6 || this.timePassed === 0  ){
 	    		clearInterval(timer)
@@ -199,9 +200,13 @@ const game = {
 	
 		if(this.matchPoints < 6 && this.gameOver){
 		 $('#lose').text(`Game Over!`)
-		} else if(this.matchPoints === 6) {
+		 this.turn()
+		 $('.cards').off('click');
+     
+        } else if(this.matchPoints === 6) {
 			$('#win').text(`You Won !`)
 			console.log('you win');
+
 		}
 
 
@@ -227,12 +232,17 @@ game.display()
 $('#start').on('click', () => {
 	game.beginTimer()
 
+
+
+
 })
+
 
 
 $('.cards').on('click', (e) => {
 	game.turn(e.target)
 })
+
 
 
 
