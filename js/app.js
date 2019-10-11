@@ -64,8 +64,9 @@ const game = {
 
     beginTimer(){
     	const timer = setInterval(()=> {
+
     		this.timePassed--
-    		$('.cards').on('click');
+    		
     		console.log(this.timePassed);
     		if(this.matchPoints === 6 || this.timePassed === 0  ){
 	    		clearInterval(timer)
@@ -111,10 +112,10 @@ const game = {
 			this.cardClicked = $card
 		
 		} else if (this.cardClicked !== null){
-			
 			//new function where you pass in  and $card
 			this.compareCards($card)
-			
+	       
+
 
 
 
@@ -205,6 +206,7 @@ const game = {
      
         } else if(this.matchPoints === 6) {
 			$('#win').text(`You Won !`)
+			 $('.cards').off('click');
 			console.log('you win');
 
 		}
@@ -235,12 +237,14 @@ $('#start').on('click', () => {
 
 
 
+
 })
 
 
 
 $('.cards').on('click', (e) => {
 	game.turn(e.target)
+
 })
 
 
