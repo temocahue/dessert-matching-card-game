@@ -54,8 +54,6 @@ const game = {
 	        $img.attr('class', getemoji)
 			$img.appendTo($div)
 
-			
-
 		}
 
 
@@ -64,22 +62,15 @@ const game = {
 
     beginTimer(){
     	const timer = setInterval(()=> {
-
-    		this.timePassed--
-    		
+			this.timePassed--
     		
     		if(this.matchPoints === 6 || this.timePassed === 0  ){
 	    		clearInterval(timer)
 	    	    this.gameOver = true;
 
     		}
-
-
-
-            this.endGame()
+			this.endGame()
     		this.printData()
-    		
-
     	},1000)
     	
     },
@@ -114,19 +105,8 @@ const game = {
 		} else if (this.cardClicked !== null){
 			//new function where you pass in  and $card
 			this.compareCards($card)
-	       
-
-
-
-
-		}
-
-
-
-		
+	    }
 	},
-	
-
 	
 	compareCards($card){
 
@@ -142,24 +122,13 @@ const game = {
 
 		// if the previous card matched the first card that was clicked 
 		if($card1Emoji === $card2Emoji){
-		
-			
-
 			// add point to cards matched
 			this.matchPoints +=1
-
-
-			
 			setTimeout(() => {
 			    $card.remove()
 			    $card2.remove()
-
-			    this.cardClicked = null;
-
-
-			}, 500)
-
-			
+				this.cardClicked = null;
+		}, 500)
 		/// if previous card does not match the card that was clicked 
 		} else {
 			setTimeout(() => {
@@ -170,19 +139,12 @@ const game = {
 
 			}, 500)
 			
-			
-
-
 		}
-
-
-
 
 	},
 	
 	endGame(){
-
-	
+		
 		if(this.matchPoints < 6 && this.gameOver){
 			$('#lose').text(`Game Over!`)
 			this.turn()
@@ -192,14 +154,9 @@ const game = {
 			$('#win').text(`You Won !`)
 			$('.cards').off('click');
 		}
-
-
-
-
-
 	}
 
- }
+}
 
 
 		
