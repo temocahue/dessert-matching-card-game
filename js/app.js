@@ -198,8 +198,9 @@ const game = {
 
 	
 		if(this.matchPoints < 6 && this.gameOver){
-		 $('#lose').text(`GameOver!`)
+		 $('#lose').text(`Game Over!`)
 		} else if(this.matchPoints === 6) {
+			$('#win').text(`You Won !`)
 			console.log('you win');
 		}
 
@@ -225,7 +226,7 @@ game.display()
 
 $('#start').on('click', () => {
 	game.beginTimer()
-	
+
 })
 
 
